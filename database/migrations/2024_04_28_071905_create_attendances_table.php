@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
+            // user_id (foreign key to user)
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->date('date');
+            $table->time('time_in');
+            $table->time('time_out')->nullable();
+            $table->string('latlng_in');
+            $table->string('latlng_out')->nullable();
             $table->timestamps();
         });
     }
