@@ -1,6 +1,7 @@
  <div class="login-brand">
-     <img src="{{ asset('img/stisla-fill.svg') }}"
+     <img src="{{ asset('img/logos.png') }}"
          alt="logo"
-         width="100"
-         class="shadow-light rounded-circle">
+         width="160"
+         height="50"
+        >
  </div>

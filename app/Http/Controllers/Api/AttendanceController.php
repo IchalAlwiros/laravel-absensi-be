@@ -63,6 +63,27 @@ class AttendanceController extends Controller
         // get attendance today
         $attendance = Attendance::where('user_id', $request->user()->id)->where('date', date('Y-m-d'))->first();
 
-        return ResponseHelper::sendSuccessResponse( $attendance ? true : false, $attendance );
+        $isCheckout = $attendance ? $attendance->time_out : false;
+
+
+
+        return ResponseHelper::sendSuccessResponse( 'check-present', ['checkin' => $attendance ? true : false, 'checkout' => $isCheckout ? true : false, ]);
+    }
+
+
+    // index
+    public function index(Request $request){
+        $date = $request->input('date');
+
+        $currentUser = $request->user();
+
+        $query = Attendance::where('user_id', $currentUser->id);
+
+        if ($date) {
+            $query->where('date', $date);
+        }
+
+        $attendance = $query->get();
+        return ResponseHelper::sendSuccessResponse( 'success', ['data' => $attendance ]);
     }
 }

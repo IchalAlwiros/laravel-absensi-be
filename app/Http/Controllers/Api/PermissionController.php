@@ -27,9 +27,9 @@ class PermissionController extends Controller
             $permission->image = $image->hashName();
         }
 
-
         $permission->save();
 
-        return ResponseHelper::sendSuccessResponse('permission created successfully', []);
+
+        return ResponseHelper::sendSuccessResponse('permission created successfully', null);
     }
 }

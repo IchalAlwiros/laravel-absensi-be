@@ -65,7 +65,7 @@
                                             <th>Latlong In</th>
                                             <th>Latlong Out</th>
 
-                                            <th>Action</th>
+                                            {{-- <th>Action</th> --}}
                                         </tr>
                                         @foreach ($attendances as $attendance)
                                             <tr>
@@ -88,7 +88,7 @@
                                                     {{ $attendance->latlng_out }}
                                                 </td>
 
-                                                <td>
+                                                {{-- <td>
                                                     <div class="d-flex justify-content-center">
                                                         <a href='{{ route('attendances.edit', $attendance->id) }}'
                                                             class="btn btn-sm btn-info btn-icon">
@@ -106,7 +106,7 @@
                                                             </button>
                                                         </form>
                                                     </div>
-                                                </td>
+                                                </td> --}}
                                             </tr>
                                         @endforeach
 

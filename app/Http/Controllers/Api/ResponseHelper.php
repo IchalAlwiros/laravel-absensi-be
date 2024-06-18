@@ -9,11 +9,17 @@ class ResponseHelper
     // Method to send success response
     public static function sendSuccessResponse($message, $data)
     {
-        return response()->json([
+        $responseData = [
             'success' => true,
             'message' => $message,
-            'data' => $data,
-        ], Response::HTTP_OK);
+        ];
+
+
+        if ($data !== null) {
+            $responseData['data'] = $data;
+        }
+
+        return response()->json($responseData, Response::HTTP_OK);
     }
 
     // Method to send error response

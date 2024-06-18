@@ -11,6 +11,6 @@ class CompanyController extends Controller
     //show
     public function show(string $id){
         $company = Company::find($id);
-        return ResponseHelper::sendSuccessResponse('view-company', ['company' => $company]);
+        return ResponseHelper::sendSuccessResponse('view-company',  $company);
     }
 }
